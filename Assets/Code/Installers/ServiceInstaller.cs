@@ -1,7 +1,10 @@
+using System.Threading.Tasks;
 using Code.Game.Differences;
 using Code.Game.Factories.Difference;
 using Code.Game.Services;
 using Code.Game.Services.IAP;
+using Unity.Services.Core;
+using Unity.Services.Core.Environments;
 using UnityEngine;
 using Zenject;
 
@@ -29,6 +32,5 @@ public class ServiceInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<IAPProvider>().AsSingle().WithArguments(_iapConfig).NonLazy();
     }
-
 }
 
