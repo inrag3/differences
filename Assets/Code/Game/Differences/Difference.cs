@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEngine;
 
-namespace Code.Game.Differences
+namespace Game.Differences
 {
     public class Difference : IDifference, IDisposable
     {
@@ -27,8 +26,8 @@ namespace Code.Game.Differences
         private void OnClicked()
         {
             Activated?.Invoke(this);
-            _first.Activate();
-            _second.Activate();
+            _first.Hide();
+            _second.Hide();
         }
     }
 }

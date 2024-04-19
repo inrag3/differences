@@ -1,7 +1,7 @@
-﻿using Code.Game.Differences;
+﻿using Game.Differences;
 using Zenject;
 
-namespace Code.Game.Factories.Difference
+namespace Game.Factories.Difference
 {
     public class DifferenceFactory : PlaceholderFactory<IPiece, IPiece, IDifference>
     {

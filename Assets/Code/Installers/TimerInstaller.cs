@@ -2,7 +2,7 @@ using Code.Game.Timer;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Installers
+namespace Installers
 {
     public class TimerInstaller : MonoInstaller
     {

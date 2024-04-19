@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using Code.Game.Services;
 using UnityEngine;
 
-namespace Code.Game.Services
+namespace Game.Services
 {
     public class CoroutinePerformer : MonoBehaviour, ICoroutinePerformer
     {

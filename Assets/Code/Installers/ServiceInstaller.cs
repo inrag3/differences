@@ -1,36 +1,38 @@
-using System.Threading.Tasks;
-using Code.Game.Differences;
-using Code.Game.Factories.Difference;
 using Code.Game.Services;
 using Code.Game.Services.IAP;
-using Unity.Services.Core;
-using Unity.Services.Core.Environments;
+using Game.Differences;
+using Game.Factories.Difference;
+using Game.Services;
+using Game.Services.IAP;
 using UnityEngine;
 using Zenject;
 
-public class ServiceInstaller : MonoInstaller
+namespace Installers
 {
-    [SerializeField] private CoroutinePerformer _coroutinePerformer;
-    [SerializeField] private IAPConfig _iapConfig;
-    public override void InstallBindings()
+    public class ServiceInstaller : MonoInstaller
     {
-        BindFactory();
-        BindCoroutinePerformer();
-        BindIAP();
-    }
+        [SerializeField] private CoroutinePerformer _coroutinePerformer;
+        [SerializeField] private IAPConfig _iapConfig;
+        public override void InstallBindings()
+        {
+            BindFactory();
+            BindCoroutinePerformer();
+            BindIAP();
+        }
 
-    private void BindFactory()
-    {
-        Container.BindFactory<IPiece, IPiece,IDifference, DifferenceFactory>().To<Difference>().AsSingle();
-    }
-    private void BindCoroutinePerformer()
-    {
-        Container.BindInterfacesAndSelfTo<ICoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle();
-    }
+        private void BindFactory()
+        {
+            Container.BindFactory<IPiece, IPiece,IDifference, DifferenceFactory>().To<Difference>().AsSingle();
+        }
+        private void BindCoroutinePerformer()
+        {
+            Container.BindInterfacesAndSelfTo<ICoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle();
+        }
 
-    private void BindIAP()
-    {
-        Container.BindInterfacesAndSelfTo<IAPProvider>().AsSingle().WithArguments(_iapConfig).NonLazy();
+        private void BindIAP()
+        {
+            Container.BindInterfacesAndSelfTo<IAPProvider>().AsSingle().WithArguments(_iapConfig).NonLazy();
+        }
     }
 }
 

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Game.Factories;
-using Code.Game.Factories.Difference;
+using Game.Factories.Difference;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Game.Differences
+namespace Game.Differences
 {
     public class Area : MonoBehaviour, IArea
     {

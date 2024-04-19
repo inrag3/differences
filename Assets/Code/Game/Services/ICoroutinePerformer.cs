@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Code.Game.Services
+namespace Game.Services
 {
     public interface ICoroutinePerformer
     {

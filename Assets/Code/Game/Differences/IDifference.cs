@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Code.Game.Differences
+namespace Game.Differences
 {
     public interface IDifference
     {

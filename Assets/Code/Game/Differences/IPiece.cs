@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Code.Game.Differences
+namespace Game.Differences
 {
     public interface IPiece
     {
         public event Action Clicked;
-        public void Activate();
+        public void Hide();
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
+using Code.Game.Services.IAP;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 
-namespace Code.Game.Services.IAP
+namespace Game.Services.IAP
 {
     public class IAPProvider : IDetailedStoreListener
     {
