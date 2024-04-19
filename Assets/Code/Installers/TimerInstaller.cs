@@ -1,4 +1,3 @@
-using Code.Game.Common;
 using Code.Game.Timer;
 using UnityEngine;
 using Zenject;

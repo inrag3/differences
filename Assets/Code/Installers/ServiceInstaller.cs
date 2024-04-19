@@ -1,4 +1,6 @@
-using Code.Game.Common;
+using Code.Game.Differences;
+using Code.Game.Factories.Difference;
+using Code.Game.Services;
 using Code.Game.Services.IAP;
 using UnityEngine;
 using Zenject;
@@ -9,10 +11,15 @@ public class ServiceInstaller : MonoInstaller
     [SerializeField] private IAPConfig _iapConfig;
     public override void InstallBindings()
     {
+        BindFactory();
         BindCoroutinePerformer();
         BindIAP();
     }
 
+    private void BindFactory()
+    {
+        Container.BindFactory<IPiece, IPiece,IDifference, DifferenceFactory>().To<Difference>().AsSingle();
+    }
     private void BindCoroutinePerformer()
     {
         Container.BindInterfacesAndSelfTo<ICoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle();
@@ -24,3 +31,4 @@ public class ServiceInstaller : MonoInstaller
     }
 
 }
+

@@ -20,6 +20,7 @@ namespace Code.Game.Services.IAP
             
             UnityPurchasing.Initialize(this, builder);
         }
+        
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             _extensions = extensions;
@@ -41,9 +42,9 @@ namespace Code.Game.Services.IAP
         {
             return PurchaseProcessingResult.Complete;
         }
-        
+
         public void OnPurchaseFailed(UnityEngine.Purchasing.Product product, PurchaseFailureDescription failureDescription) { }
-        
+
         [Obsolete]
         public void OnPurchaseFailed(UnityEngine.Purchasing.Product product, PurchaseFailureReason failureReason) { }
     }

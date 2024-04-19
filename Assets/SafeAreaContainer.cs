@@ -5,12 +5,11 @@ using UnityEngine;
 public class SafeAreaContainer : MonoBehaviour
 {
     private RectTransform _rectTransform;
-
-    private void OnValidate()
-        => _rectTransform ??= GetComponent<RectTransform>();
-    
     private void Awake()
-        => UpdateArea();
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        UpdateArea();
+    }
 
     private void UpdateArea()
     {
