@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-namespace Code.Game.Services.IAP
+namespace Game.Services.IAP
 {
     [CreateAssetMenu(menuName = "Create IAPConfig", fileName = "IAPConfig", order = 0)]
     public class IAPConfig : ScriptableObject

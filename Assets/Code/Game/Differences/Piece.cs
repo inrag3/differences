@@ -35,15 +35,7 @@ namespace Game.Differences
 
         private void Animate()
         {
-            transform
-                .DOShakeScale(0.4f, Vector3.one)
-                .OnComplete(() => 
-                    _sprite.DOFade(0, 0.2f)
-                        .OnComplete(() =>
-                        {
-                            _sprite.enabled = false;
-                            gameObject.SetActive(false);
-                        }));
+            _sprite.DOFade(0f, 0.15f).OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

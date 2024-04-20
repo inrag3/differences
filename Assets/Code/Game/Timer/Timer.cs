@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
-using Code.Game.Services;
+using Code.Game.Timer;
 using Game.Services;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Game.Timer
+namespace Game.Timer
 {
     public class Timer : ITimer, IReadOnlyTimer, IInitializable
     {
@@ -21,6 +21,7 @@ namespace Code.Game.Timer
             Time = config.Time;
             _waiter = new WaitForSeconds(1);
         }
+
         public int Time { get; private set; }
 
         public void Initialize() => Start();
@@ -52,6 +53,7 @@ namespace Code.Game.Timer
                 yield return _waiter;
             }
         }
+
         private void Tick()
         {
             Time--;
@@ -60,6 +62,7 @@ namespace Code.Game.Timer
                 Stop();
                 Ended?.Invoke();
             }
+
             Changed?.Invoke(Time);
         }
     }

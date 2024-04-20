@@ -1,5 +1,4 @@
 ﻿using System;
-using Code.Game.Services.IAP;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
@@ -22,6 +21,10 @@ namespace Game.Services.IAP
             UnityPurchasing.Initialize(this, builder);
         }
         
+        public void StartPurchase(string productId) => 
+            _controller.InitiatePurchase(productId);
+
+
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             _extensions = extensions;
@@ -31,16 +34,17 @@ namespace Game.Services.IAP
 
         public void OnInitializeFailed(InitializationFailureReason error)
         {
-            throw new NotImplementedException();
+            Debug.LogError($"Initialize failed: {error}");
         }
 
         public void OnInitializeFailed(InitializationFailureReason error, string message)
         {
-            throw new NotImplementedException();
+            Debug.LogError($"Initialize failed: {error}");
         }
 
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
         {
+            Debug.Log($"Process purchase: {purchaseEvent.purchasedProduct.definition.id}");
             return PurchaseProcessingResult.Complete;
         }
 

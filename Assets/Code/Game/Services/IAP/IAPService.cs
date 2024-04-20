@@ -1,7 +1,7 @@
-﻿namespace Code.Game.Services.IAP
+﻿namespace Game.Services.IAP
 {
     public class IAPService
     {
-        
+   
     }
 }
